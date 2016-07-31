@@ -10,6 +10,7 @@ basic usage
 -----
 
 1 - Build base image (from this project):
+
 		docker build -t tabashir/rbenv .
 
 		(the name is important for the sub-project Dockerfile below)
@@ -19,6 +20,7 @@ basic usage
 3 - Your app should be in a subfolder 'webapp' of your rails project.
 
 4 - Build sub project
+
     docker build -t myapp .
 
 5 - Run it
