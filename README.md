@@ -25,8 +25,9 @@ basic usage
 
 5 - Run it
 
-    docker run -d -P myapp foreman start 
+    docker run --net=host -v <location_of_dbconfigfile>:/app/config/database.yml -ti myapp
 
+		(you will likely add -d for deamonise and add another -v location for logs)
 
 Notes
 -----
