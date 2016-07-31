@@ -9,23 +9,26 @@ https://github.com/cthulhu666/docker-rbenv
 basic usage
 -----
 
-    docker run -i -t <imagename>
-    $ ruby -v
-    ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-linux]
-     
-Notes
------
+1 - Build base image (from this project):
+		docker build -t tabashir/rbenv .
 
-remember to rbenv rehash installing executables
-remember to EXPOSE a port
+		(the name is important for the sub-project Dockerfile below)
 
-    
-build it:
+2 - Copy 'Project_Dockerfile' to 'Dockerfile' in your rails project.
 
+3 - Your app should be in a subfolder 'webapp' of your rails project.
+
+4 - Build sub project
     docker build -t myapp .
 
-run your app:
+5 - Run it
 
     docker run -d -P myapp foreman start 
 
 
+Notes
+-----
+
+* remember to rbenv rehash installing executables if you install any new gems in project build
+* remember to EXPOSE a port (default is 50080)
+* currently using mongrel, I'm sure I should change this asap... 

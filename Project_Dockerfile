@@ -1,0 +1,5 @@
+FROM tabashir/rbenv
+ADD webapp /app
+WORKDIR /app
+EXPOSE 50080
+CMD mongrel_rails start -p 50080
