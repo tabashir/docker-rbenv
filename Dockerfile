@@ -1,9 +1,12 @@
-FROM debian:jessie
-MAINTAINER jakub.gluszecki@gmail.com
+FROM ubuntu:precise
+MAINTAINER Jez McKinley https://github.com/tabashir
 
 RUN apt-get update && \
-    apt-get install -y sudo build-essential libssl-dev libreadline6-dev curl git-core libffi-dev && \
-    apt-get clean
+    apt-get install -y apt-utils libreadline6-dev && \
+    apt-get install -y sudo build-essential libssl-dev curl git-core libffi-dev && \
+    apt-get install -y libmagickcore-dev libmagickwand-dev && \
+    apt-get install -y libmysqlclient-dev
+RUN apt-get clean
 
 ADD bin/install-rbenv.sh /usr/sbin/
 ADD bin/init.sh /usr/sbin/

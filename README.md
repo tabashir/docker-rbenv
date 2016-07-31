@@ -1,27 +1,24 @@
 docker-rbenv
 ============
 
-__Docker image with rbenv and ruby 2.2.0 installed on non-root account__
+__Docker image with rbenv, ruby 1.8.7 and rails 2.3.8 installed on non-root account__
+
+Based from a build by Cthulhu666 (props for one of the coolest names on github!)
+https://github.com/cthulhu666/docker-rbenv
 
 basic usage
 -----
 
-    docker run -i -t cthulhu666/docker-rbenv
+    docker run -i -t <imagename>
     $ ruby -v
     ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-linux]
      
-using as base image example
----------------------------
+Notes
+-----
 
-Create Dockerfile
+remember to rbenv rehash installing executables
+remember to EXPOSE a port
 
-    FROM cthulhu666/docker-rbenv
-    RUN sudo apt-get update && apt-get install -y libmysqlclient-dev # install extra packages
-    ADD . /app
-    WORKDIR /app
-    RUN bundle install
-    RUN gem install foreman && rbenv rehash # remember to rehash after installing executables
-    EXPOSE 8080
     
 build it:
 
