@@ -25,9 +25,11 @@ basic usage
 
 5 - Run it
 
-    docker run --net=host -v <location_of_dbconfigfile>:/app/config/database.yml -ti myapp
+    docker run -e RAILS_ENV=<environment> --net=host -v <location_of_dbconfigfile>:/app/config/database.yml -ti myapp
 
 		(you will likely add -d for deamonise and add another -v location for logs)
+
+    docker run -e RAILS_ENV=<environment> --net=host -v <location_of_dbconfigfile>:/app/config/database.yml -v <location_of_host_logs>:/app/log -v <location_of_generated_files>:/app/public/generated -ti myapp
 
 Notes
 -----
